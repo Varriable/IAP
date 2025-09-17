@@ -43,8 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $ObjSendMail->Send_Mail($conf, $mailCnt);
                 $success = "Signup successful! You can now sign in.";
-                header("Location: signin.php");
-                exit;
             }
         } catch (PDOException $e) {
             $error = "Database error: " . $e->getMessage();
