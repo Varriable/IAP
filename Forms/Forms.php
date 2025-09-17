@@ -2,7 +2,7 @@
 class forms{
     public function signup(){
 ?>
-<form method="post">
+<form method="POST">
   <div class="mb-3">
     <label for="exampleInputName1" class="form-label">Name</label>
     <input type="text" class="form-control" id="exampleInputName1" name="name" aria-describedby="nameHelp">
@@ -24,28 +24,10 @@ class forms{
 
 <?php
     }
-
-    private function login_submit(){
-
-      try {
-    $pdo = new PDO(
-        "mysql:host={$conf['db_host']};dbname={$conf['db_name']}",
-        $conf['db_user'],
-        $conf['db_pass']
-    );
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully to {$conf['db_name']}";
-} catch (PDOException $e) {
-    die("DB Connection failed: " . $e->getMessage());
-}
-
-
-    }
-
     public function signin(){
 ?>
 
-<form method="post">
+<form method="POST">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">

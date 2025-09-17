@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require 'Plugins/vendor/autoload.php';
 require 'conf.php';
 $directories = ['Layouts', 'Forms', 'Global'];

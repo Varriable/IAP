@@ -32,7 +32,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
                 $stmt = $pdo->prepare("INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)");
                 $stmt->execute([$name, $email, $passwordHash]);
+                $mailCnt = [
+                    'name_from' => 'Ramadhan Abdilatif',
+                    'mail_from' => 'ramadhanabdilatif@gmail.com',
+                    'name_to' => $name,
+                    'mail_to' => $email,
+                    'subject' => 'Hello From Ramadhan Abdilatif 172651',
+                    'body' => 'Welcome to ICS A! <br> This is a new semester. Let\'s have fun together learning about PHP Mailer.'
+                ];
+
+                $ObjSendMail->Send_Mail($conf, $mailCnt);
                 $success = "Signup successful! You can now sign in.";
+                header("Location: signin.php");
+                exit;
             }
         } catch (PDOException $e) {
             $error = "Database error: " . $e->getMessage();
@@ -47,7 +59,3 @@ if (isset($error)) echo "<div class='alert alert-danger'>$error</div>";
 if (isset($success)) echo "<div class='alert alert-success'>$success</div>";
 $ObjLayout->form_content($conf, $ObjForm);
 $ObjLayout->footer($conf);
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Handle submission
-}

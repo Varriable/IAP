@@ -1,6 +1,6 @@
 <?php
 require 'ClassAutoLoad.php';
-session_start();
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($user && password_verify($password, $user['password_hash'])) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_name'] = $user['name'];
+                $success = "Successful Sign in";
                 header("Location: index.php"); // Redirect to home or dashboard
                 exit;
             } else {
@@ -43,5 +44,6 @@ $ObjLayout->header($conf);
 $ObjLayout->navbar($conf);
 $ObjLayout->banner($conf);
 if (isset($error)) echo "<div class='alert alert-danger'>$error</div>";
+if (isset($success)) echo "<div class='alert alert-success'>$success</div>";
 $ObjLayout->form_content($conf, $ObjForm);
 $ObjLayout->footer($conf);

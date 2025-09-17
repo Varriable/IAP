@@ -28,12 +28,23 @@ class Layouts {
                <a class="navbar-brand" href="/">PHPMailer</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
                <div class="collapse navbar-collapse" id="navbarsExample05">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                     <li class="nav-item"> <a class="nav-link active" aria-current="page" href="./">Home</a> </li>
+                     <li class="nav-item"> <a class="nav-link" href="./">Home</a> </li>
+                     <?php if (!isset($_SESSION['user_id'])): ?>
                      <li class="nav-item"> <a class="nav-link" href="signup.php">Sign Up</a> </li>
                      <li class="nav-item"> <a class="nav-link" href="signin.php">Sign In</a> </li>
+                     <?php endif; ?>
+                     <?php if (isset($_SESSION['user_id'])): ?>
+                     <li class="nav-item"> <a class="nav-link" href="users.php">Users</a> </li>
+                     <li class="nav-item"> <a class="nav-link" href="logout.php">Logout</a> </li>
+                     <?php endif; ?>
 
                   </ul>
                   <form role="search"> <input class="form-control" type="search" placeholder="Search" aria-label="Search"> </form>
+                  <?php if (isset($_SESSION['user_id'])): ?>
+                     <div class="navbar-text">
+                        Logged in as <?php echo htmlspecialchars($_SESSION['user_name']); ?>
+                     </div>
+                  <?php endif; ?>
                </div>
             </div>
          </nav>
@@ -96,7 +107,7 @@ class Layouts {
 ?>
 
             <footer class="pt-3 mt-4 text-body-secondary border-top">
-            <p>Copyrights &copy; <?php echo date("Y") . " {$conf['site_name']}. All rights reserved.</p>"; ?>
+            <p>Copyrights &copy; <?php echo date("Y") . " Abdilatif, Ramadhan. All rights reserved.</p>"; ?>
             </footer>
          </div>
       </main>
@@ -106,29 +117,5 @@ class Layouts {
 
 <?php
     }
-
-   public function list($conf){
-      ?>
-      <div class="row">
-         <div class="col-md-12">
-            <h2>Registered Users</h2>
-            <table class="table table-striped">
-               <thead>
-                  <tr>
-                     <th scope="col">#</th>
-                     <th scope="col">Name</th>
-                     <th scope="col">Email</th>
-                     <th scope="col">Phone</th>
-                     <th scope="col">Registered At</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  
-               </tbody>
-            </table>
-         </div>
-      </div>
-      <?php    
-   }
 
 }
