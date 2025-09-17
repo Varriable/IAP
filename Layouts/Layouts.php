@@ -25,10 +25,10 @@ class Layouts {
             <header class="pb-3 mb-4 border-bottom">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
             <div class="container-fluid">
-               <a class="navbar-brand" href="/">PHPMailer</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
+               <a class="navbar-brand" href="index.php">PHPMailer</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
                <div class="collapse navbar-collapse" id="navbarsExample05">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                     <li class="nav-item"> <a class="nav-link" href="./">Home</a> </li>
+                     <li class="nav-item"> <a class="nav-link" href="index.php">Home</a> </li>
                      <?php if (!isset($_SESSION['user_id'])): ?>
                      <li class="nav-item"> <a class="nav-link" href="signup.php">Sign Up</a> </li>
                      <li class="nav-item"> <a class="nav-link" href="signin.php">Sign In</a> </li>
@@ -89,7 +89,7 @@ class Layouts {
                 <div class="row align-items-md-stretch">
                <div class="col-md-12">
                   <div class="h-100 p-5 text-bg-light rounded-3">
-                     <?php if($_SERVER['PHP_SELF'] == '/signup.php') { $ObjForm->signup(); }else{ $ObjForm->signin();} ?>
+                     <?php if($_SERVER['PHP_SELF'] == '/IAP/signup.php') { $ObjForm->signup(); }else{ $ObjForm->signin();} ?>
                   </div>
                </div>
                <!-- <div class="col-md-6">
