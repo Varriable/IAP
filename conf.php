@@ -13,14 +13,15 @@ $conf['site_lang'] = 'en';
 // Database configuration
 $conf['db_type'] = 'mysql';
 $conf['db_host'] = 'localhost';
-$conf['db_user'] = 'php';
+$conf['db_user'] = '';
 $conf['db_pass'] = '';
-$conf['db_name'] = 'php_class';
+$conf['db_name'] = '';
 
 // Email configuration
 $conf['mail_type'] = 'smtp'; // Options: 'smtp' or 'mail'
 $conf['smtp_host'] = 'smtp.gmail.com';
-$conf['smtp_user'] = 'ramadhanabdilatif13@gmail.com';
-$conf['smtp_pass'] = 'yufg pknf vfdx boia';
+$conf['smtp_user'] = '';
+$conf['smtp_pass'] = '';
 $conf['smtp_port'] = 465;
+
 $conf['smtp_secure'] = 'ssl';
